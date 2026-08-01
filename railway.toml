@@ -1,0 +1,21 @@
+[build]
+builder = "DOCKERFILE"
+
+[deploy]
+# Sem startCommand: a imagem tem entrypoint próprio que sobe nginx + backend.
+healthcheckPath = "/api/v1/health"
+# Startup lento na 1a vez: bootstrap do Mongo embutido + backend Java (~1-3min)
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+# ⚠️ PORT=80 é OBRIGATÓRIO como variável do serviço (default no wizard):
+# o Railway roteia healthcheck/tráfego pela env var PORT e NÃO pelo EXPOSE
+# do Dockerfile. Sem PORT o deploy sobe mas o healthcheck falha.
+# ⚠️ VOLUME: montar /appsmith-stacks (Mongo + Redis + uploads). Sem volume,
+# os dados morrem a cada redeploy. Adicionar volume no dashboard do projeto.
+# ⚠️ APPSMITH_ENCRYPTION_PASSWORD/SALT: template variables (wizard na UI).
+
+# Nota: variáveis de template (prompts do wizard) são configuradas na UI do
+# Railway ao criar/publicar o template (Dashboard → Templates), NÃO aqui.
+# Ver docs/STRATEGY.md → "Template variables na UI".
