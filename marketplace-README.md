@@ -9,7 +9,7 @@ Railway provides a modern, streamlined platform for deploying web applications a
 Deploying this template gives you a full internal-tools platform in minutes:
 
 - **Open-source internal tools builder** — drag-and-drop UI, no frontend code required
-- **Official image pinned** — `appsmith/appsmith-ce:v1.77.0` from Docker Hub (not a stale community build)
+- **Official image pinned** — `appsmith/appsmith-ce:v2.2` from Docker Hub (not a stale community build)
 - **Self-contained** — MongoDB and Redis are embedded in the image; no external database services needed
 - **Persistent storage** — mount a volume at `/appsmith-stacks` to keep your apps and data across redeploys
 - **Production-ready defaults** — healthcheck on `/api/v1/health`, restart policy

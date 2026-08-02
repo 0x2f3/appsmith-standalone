@@ -7,9 +7,9 @@
 #   - Healthcheck nativo em /api/v1/health
 #
 # Não rebuildamos o app: o upstream publica imagem estável (tags semver,
-# ex: v1.77.0). Pino explícito = deploys reproduzíveis.
+# ex: v2.2). Pino explícito = deploys reproduzíveis.
 # Pra atualizar: bump da tag abaixo e re-deploy.
-FROM appsmith/appsmith-ce:v1.77.0
+FROM appsmith/appsmith-ce:v2.2
 
 # EXPOSE explícito é OBRIGATÓRIO: o Railway detecta a porta do serviço pelo
 # EXPOSE do Dockerfile (não herda da imagem base via FROM).

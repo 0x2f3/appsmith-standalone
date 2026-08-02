@@ -8,7 +8,7 @@
 
 ## Stack
 
-- **Appsmith CE v1.77.0** — imagem oficial `appsmith/appsmith-ce` (Docker Hub), pinada por tag semver
+- **Appsmith CE v2.2** — imagem oficial `appsmith/appsmith-ce` (Docker Hub), pinada por tag semver
 - **MongoDB + Redis embutidos** — dentro de `/appsmith-stacks` (volume) — zero serviços extras
 - **nginx + backend Java + frontend React** — empacotados na imagem oficial
 
@@ -32,7 +32,7 @@
 
 ## Como funciona
 
-1. O Dockerfile puxa a imagem oficial `appsmith/appsmith-ce:v1.77.0` (build ~30s)
+1. O Dockerfile puxa a imagem oficial `appsmith/appsmith-ce:v2.2` (build ~30s)
 2. O entrypoint da imagem inicializa o Mongo embutido e sobe nginx + backend
 3. UI em `/`, API em `/api/*`, healthcheck `/api/v1/health`
 4. Crie sua conta admin e monte os apps
