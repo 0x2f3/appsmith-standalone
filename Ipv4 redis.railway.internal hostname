@@ -1,0 +1,24 @@
+legacy environments before October 2025 only use IPv6 records before that time do not exist.
+enable redis_url environment variable
+family value = 0 to enable multiple quires 
+ie.
+{{import Redis from "/edis/";
+const redis = new Redis(process.env.REDIS_URL + "?family=0");
+const ping = await redis.ping();}}
+import { Queue } from "bullmq";
+const redisURL = new URL(process.env.REDIS_URL);
+const queue = new Queue("Queue", {
+  connection: {
+    family: 0,
+    host: redisURL.hostname,
+    port: redisURL.port,
+    username: redisURL.username,
+    password: redisURL.password,
+  },
+});
+const jobs = await queue.getJobs();
+console.log(jobs); USA preliminary outline 
+*Member and location spreadsheet presentation 
+create "railway_domain" and "self_serve_public_url"
+close port 443
+open portal 8000
